@@ -1,0 +1,56 @@
+<style lang="less">
+  .cell {
+    width: 25%;
+    display: inline-block;
+    image {
+      width: 100%;
+      height: 100px;
+    }
+    text {
+      display: block;
+      text-align: center;
+    }
+  }
+</style>
+<template>
+  <scroll-view class="list">
+    <repeat for="{{champion}}" key="index" index="index" item="item">
+      <view @tap="tap" class="cell">
+        <image src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/{{item.ename}}/{{item.ename}}.jpg" mode="aspectFit" lazy-load="{{true}}"/>
+        <text>{{item.cname}}</text>
+        <text>{{item.title || ' '}}</text>
+      </view>
+    </repeat>
+  </scroll-view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import {getChampion} from '../helpers/api.js'
+
+  export default class List extends wepy.component {
+    data = {
+      champion: []
+    }
+    events = {
+      'index-broadcast': (...args) => {
+        let $event = args[args.length - 1]
+        console.log(`${this.$name} receive ${$event.name} from ${$event.source.name}`)
+      }
+    }
+
+    methods = {
+      tap () {
+        // this.num = this.num + 1
+        console.log(this.$name + ' tap')
+      },
+      add () {
+        let len = this.list.length
+        this.list.push({id: len + 1, title: 'title_' + len})
+      }
+    }
+
+    onLoad () {
+      
+    }
+  }
+</script>

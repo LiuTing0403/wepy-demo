@@ -1,0 +1,1 @@
+{"pages":["pages/index","pages/tools","pages/summoner"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"WeChat","navigationBarTextStyle":"black"},"tabBar":{"list":[{"pagePath":"pages/index","text":"英雄"},{"pagePath":"pages/tools","text":"装备"},{"pagePath":"pages/summoner","text":"技能"}]}}

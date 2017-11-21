@@ -1,0 +1,14 @@
+
+  <view class="container">
+    
+  <scroll-view class="list">
+    <block wx:for="{{$list$champion}}" wx:for-index="$list$index" wx:for-item="$list$item" wx:key="$list$index">
+      <view bindtap="$list$tap" class="cell">
+        <image src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/{{$list$item.ename}}/{{$list$item.ename}}.jpg" mode="aspectFit" lazy-load="{{$list$true}}"/>
+        <text>{{$list$item.cname}}</text>
+        <text>{{$list$item.title || ' '}}</text>
+      </view>
+    </block>
+  </scroll-view>
+
+  </view>

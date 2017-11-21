@@ -1,0 +1,1 @@
+.cell{width:25%;display:inline-block}.cell image{width:100%;height:100px}.cell text{display:block;text-align:center}

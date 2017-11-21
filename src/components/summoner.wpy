@@ -1,0 +1,45 @@
+<style lang="less">
+  .cell {
+    width: 25%;
+    display: inline-block;
+    image {
+      width: 150rpx;
+      height: 150rpx;
+      border-radius: 75rpx;
+      display: block;
+      margin: 0 auto;
+    }
+    text {
+      display: block;
+      text-align: center;
+    }
+  }
+</style>
+<template>
+  <scroll-view class="list">
+    <repeat for="{{summoners}}" key="index" index="index" item="item">
+      <view @tap="tap" class="cell">
+        <image src="http://game.gtimg.cn/images/yxzj/img201606/itemimg/{{item.item_id}}.jpg" mode="aspectFill" lazy-load="{{true}}"/>
+        <text>{{item.item_name}}</text>
+      </view>
+    </repeat>
+  </scroll-view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import {getSummoner} from '../helpers/api.js'
+
+  export default class SummonerList extends wepy.component {
+    data = {
+      summoners: []
+    }
+
+    onLoad () {
+      let self = this;
+      getTools(({data}) => {
+        self.summoners = data
+        self.$apply()
+      })
+    }
+  }
+</script>
